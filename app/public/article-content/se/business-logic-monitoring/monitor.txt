@@ -1,0 +1,11 @@
+export default abstract class AuditAgent{
+
+    static initTransaction():string{ }
+
+    static initGroup(){ ... }
+
+    endCurrentGroup(){ ... }
+
+    endTransaction(){ ... }
+
+}

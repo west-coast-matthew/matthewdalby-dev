@@ -1,0 +1,28 @@
+    {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Next.js: debug server-side",
+                "type": "node",
+                "request": "attach",
+                "port": 9229,
+                "restart": true,
+                "sourceMap": true,
+                "outFiles": [
+                    "**/*.js"
+                ],
+                "skipFiles": [
+                    "<node_internals>/**"
+                ],
+                "cwd": "${workspaceRoot}",
+                "env": {
+                    "NODE_OPTIONS": "--inspect"
+                },
+                "preLaunchTask": "npm: dev",
+                "serverReadyAction": {
+                    "pattern": "Local:\\s*(https?://.+)",
+                    "action": "debugWithChrome"
+                }
+            }
+        ]
+    }

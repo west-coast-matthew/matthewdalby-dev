@@ -1,0 +1,79 @@
+@use '../../app/global.module.scss' as global;
+
+.footer-panel{
+    
+    margin: auto;
+
+    .icon-tray{
+        //border: thin solid grey;
+        //padding: 100px;
+        display: flex;
+        width: 90%;
+        margin: auto;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        align-items: center;
+        justify-content: center;
+
+        div{
+            padding: 15px;
+            //visibility: hidden;
+            width: 25px;
+            height: 25px;
+        
+            //border: thick solid red;
+        }
+    }
+
+    
+
+    .name-icon{
+    }
+
+    .name-reference{
+        margin-top: 25px;
+        color: white;
+        font-family: 'ClashDisplay-Semibold';
+        font-style: italic;
+        font-size: 1.4em;
+    }
+
+    .subtitle{
+        //font-size: .8em;
+        //color: white;
+        //border: thin solid white;
+    }
+
+    .bottom-links{
+
+        div{
+            padding: 15px;
+            display: inline;
+        }
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+    .bottom-link{
+        display: inline;
+
+        a:link{
+            //text-decoration: none;
+            color: global.$font-base-color;
+        }
+    
+        a:hover{
+            cursor: pointer;
+            text-decoration: none;
+            color: global.$font-base-color;
+        }
+    
+        a:visited{
+            //text-decoration: none;
+            color: global.$font-base-color;
+        }
+
+    }
+
+    
+}

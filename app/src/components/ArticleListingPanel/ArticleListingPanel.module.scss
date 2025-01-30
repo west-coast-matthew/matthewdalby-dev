@@ -1,0 +1,14 @@
+.article-listing-panel{
+    //border: thin solid blue;
+    padding: 5px;
+    border: thin solid teal;
+    text-align: left;
+    width: 80%;
+    margin: auto;
+
+    .article-title-panel{
+        display: flex;
+        flex-direction: row;
+        border: thin solid teal;
+    }
+}

@@ -1,0 +1,9 @@
+import AuditAgent from "@/monitoring/audit-agent";
+
+...
+
+AuditAgent.initGroup('Retrieving credit scores');
+...
+AuditAgent.recordMessage(`Credit store (experian): ${scores.experianScore}`);
+...
+AuditAgent.endCurrentGroup();

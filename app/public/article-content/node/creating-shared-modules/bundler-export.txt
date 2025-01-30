@@ -1,0 +1,9 @@
+// This format will not produce VS code typechecking
+import {someFunction} from 'somwhere';
+export someFunction;
+
+// Working format
+export * from '@config/logger';
+export * from './config/db';
+export * from '@middleware/hola.middleware';
+

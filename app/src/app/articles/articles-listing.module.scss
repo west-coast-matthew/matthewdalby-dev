@@ -1,0 +1,25 @@
+@use '../global.module.scss';
+
+.listing-content{
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  //border: thin solid red;
+  //margin-left: 5px;
+  //margin-right: 5px;
+  // align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  //row-gap: 10px;
+  //column-gap: 1px;
+  //gap: 1px;
+  
+
+  //flex: 1px;
+
+  margin-bottom: 25px;
+
+  //border: thin solid white;
+ 
+}

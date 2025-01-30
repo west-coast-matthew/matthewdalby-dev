@@ -1,0 +1,155 @@
+@use '../global.module.scss';
+
+.about-panel{
+    
+    // border: thin solid white;
+    width: 80%;
+    margin: auto;
+    
+    h3{
+      //color: white !important;
+      text-align: left;
+      
+    }
+
+    p{
+      text-align: left;
+    }
+
+    ul{
+        list-style: none;
+        padding: 0;
+    }
+  
+    li{
+      display: inline;
+      margin-right: 30px;
+    }
+
+    .skillset{
+     //  border: thin solid white;
+
+      text-align: left;
+
+      ul li{
+        display: list-item;
+      }
+    }
+
+    .input-element2{
+      margin-bottom: 15px;
+      color: white;
+      padding-top: 10px;
+      
+    }
+
+    .contact-form{
+      width: 75%;
+      margin: auto;
+      margin-bottom: 20px;;
+      border: thin solid rgb(61, 60, 60);
+      border-radius: 5px;
+      padding: 25px;
+      list-style-type: circle;
+      //margin: 10px;
+
+      div{
+        // border: thin solid white;
+        display: flex;
+
+      }
+
+      label{
+        //text-align: left;
+        margin-right: 25px;
+      };
+
+      .input-element{
+       // border: thick solid red;
+
+       input{
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid #fff;
+        outline: none;
+        background: transparent;
+       }
+
+       //todo: delete
+       input [type="checkbox_"]{
+        padding-bottom: 25px;
+        border-color: white;
+       }
+
+       label{
+        //position: absolute;
+        //top:0;
+        //left: 0;
+        padding: 10px 0;
+        // font-size: 16px;
+        color: #fff;
+        pointer-events: none;
+        transition: .5s;
+       }
+      }
+
+      #message{
+          border: thick solid red;
+          opacity: .5;
+      }
+
+      button{
+        border-radius: 5px;
+        border: thin solid white;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        color: white;
+        margin: auto;
+        padding: 5px 10px 5px 10px;
+      }
+
+      
+
+      .bottom-links{
+        display: flex;
+
+      }
+
+      .skill-icon{
+        .circle {
+
+            width: 50px;
+          
+            height: 50px;
+          
+            border-radius: 50%;
+          
+            background-color: white;
+          
+          }
+    }
+
+      
+    }
+
+    .skills-panel{
+      text-align: center;
+    }
+
+    .links-panel{
+      text-align: left;
+      a{
+        margin-left: 55px;
+        margin-bottom: 35px;
+        padding-bottom: 15px;
+      }
+      div{
+        margin-bottom: 15px;
+      }
+    }
+
+}

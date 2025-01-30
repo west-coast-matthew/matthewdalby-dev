@@ -1,0 +1,42 @@
+@use '../../app/global.module.scss' as global;
+
+.blog-topic-nav-panel{
+    // border: thin solid white;
+    border-radius: 5px;
+    width: 90%;
+    margin: auto;
+
+    margin-top: 25px;
+    margin-bottom: 25px;
+  
+      ul{
+        list-style: none;
+        padding: 0;
+      }
+  
+      li{
+        display: inline;
+        margin-right: 30px;
+      }
+  
+      a:link {
+          color: global.$font-base-color;
+          text-decoration: none;
+      }
+      
+      /* visited link */
+      a:visited {
+          color: global.$font-base-color;
+      }
+      
+      /* mouse over link */
+      a:hover {
+          color: global.$font-base-color;
+          text-decoration: underline;
+      }
+      
+      /* selected link */
+      a:active {
+          color: global.$font-base-color;
+      }
+}

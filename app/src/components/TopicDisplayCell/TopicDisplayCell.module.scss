@@ -1,0 +1,54 @@
+@use '../../app/global.module.scss';
+
+.topic-display-cell{
+    width: 320px;
+    height: 360px;
+    display: inline-block;
+    color: grey;
+    margin: 5px;
+
+    .upper-section{
+        background : #1C1B22;
+        background : rgba(28, 27, 34, 1);
+        border-style : Solid;
+        border-color : #34323E;
+        border-color : rgba(52, 50, 62, 1);
+        border-width : 1px;
+        width : 320px;
+        height : 180px;
+        border-radius : 15px 15px 0px 0px;
+        -moz-border-radius : 15px 15px 0px 0px;
+        -webkit-border-radius : 15px 15px 0px 0px;
+   }
+
+   .lower-section{
+        background : -moz-linear-gradient(0% 50% 0deg,rgba(31, 30, 37, 1) 0%,rgba(52, 50, 62, 1) 100%);
+        background : -webkit-linear-gradient(0deg, rgba(31, 30, 37, 1) 0%, rgba(52, 50, 62, 1) 100%);
+        background : -webkit-gradient(linear,0% 50% ,100% 50% ,color-stop(0,rgba(31, 30, 37, 1) ),color-stop(1,rgba(52, 50, 62, 1) ));
+        background : -o-linear-gradient(0deg, rgba(31, 30, 37, 1) 0%, rgba(52, 50, 62, 1) 100%);
+        background : -ms-linear-gradient(0deg, rgba(31, 30, 37, 1) 0%, rgba(52, 50, 62, 1) 100%);
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#1F1E25', endColorstr='#34323E' ,GradientType=0)";
+        background : linear-gradient(90deg, rgba(31, 30, 37, 1) 0%, rgba(52, 50, 62, 1) 100%);
+        border-style : Solid;
+        border-color : #34323E;
+        border-color : rgba(52, 50, 62, 1);
+        border-width : 1px;
+        width : 320px;
+        height : 180px;
+        border-radius : 0px 0px 15px 15px;
+        -moz-border-radius : 0px 0px 15px 15px;
+        -webkit-border-radius : 0px 0px  15px 15px;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1F1E25',endColorstr='#34323E' , GradientType=1);
+
+        h2{
+            font-size: 1.1em;
+            color: white;
+        }
+
+        p{
+            font-size: .8em;
+            padding: 5px;
+        }
+    }
+
+}

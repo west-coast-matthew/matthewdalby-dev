@@ -1,0 +1,10 @@
+export const processLoanApplication = (app:LoanApplication):LoanApplication =>{
+    console.log(`attempting to process new application.`);
+
+    const transactionId:string = AuditAgent.initTransaction();
+    storage.run({ transactionId: transactionId }, () => {
+        processLoanApplicationInternal(app);
+    });
+
+    return app;
+}

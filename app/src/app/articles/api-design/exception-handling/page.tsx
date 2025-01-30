@@ -1,0 +1,18 @@
+import { Metadata } from "next";
+import { parseHeaders } from "@/utils/page-utils";
+import ArticleTemplateLayout from "@/app/articles/article-template";
+import { Fade } from "react-awesome-reveal";
+
+export const metadata: Metadata = {
+  title: "Matthew Dalby: Articles: API Design: Exception Handling",
+};
+
+export default async function ArticlePage() {
+  const { selPath, selArticle } = await parseHeaders();
+
+  return (
+    <ArticleTemplateLayout selPath={selPath} selArticle={selArticle}>
+      <Fade>Put your article content here, thats it!</Fade>
+    </ArticleTemplateLayout>
+  );
+}

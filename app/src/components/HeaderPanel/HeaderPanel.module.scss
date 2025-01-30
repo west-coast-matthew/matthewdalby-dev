@@ -1,0 +1,61 @@
+@use '../../app/global.module.scss' as global;
+
+.header-panel{
+    width: 100%;
+    font-family: 'Figtree', sans-serif;
+    min-height: 25px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    align-items: center;
+    border-bottom: thin solid white;
+    width: 90%;
+    margin: auto;
+    hr{
+        color: red;
+    }
+
+    .menu-item-container{
+        margin-right: 50px;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;
+
+    }
+
+    .menu-item{
+        display: inline-block;
+        margin: 5px;
+        float: right;
+        display: inline-block;
+        padding-right: 10px;
+        cursor: pointer;
+    }
+
+    .menu-item:hover{
+        transition-duration: .75s;
+        transform: scale(1.25);
+    }
+
+    a:link{
+        text-decoration: none;
+        color: global.$font-base-color;
+    }
+
+    a:hover{
+        cursor: pointer;
+        text-decoration: none;
+        color: global.$font-base-color;
+    }
+
+    a:visited{
+        text-decoration: none;
+        color: global.$font-base-color;
+    }
+
+
+}

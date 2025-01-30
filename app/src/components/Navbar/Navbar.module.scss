@@ -1,0 +1,14 @@
+@use '../../app/global.module.scss';
+
+.navbar{
+    color: white;
+    font-family: $ClashDisplay-Semibold;
+    font-size: large;
+    a{
+        border: thick solid red;
+    }
+}
+
+
+    
+    

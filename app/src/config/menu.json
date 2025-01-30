@@ -1,0 +1,27 @@
+[
+    {
+        "title":"Home",
+        "link":"/",
+        "active": true
+    },
+    {
+        "title":"Articles",
+        "link":"/articles",
+        "active": true
+    },
+    {
+        "title":"Apps",
+        "link":"/apps",
+        "active": true
+    },
+    {
+        "title":"Cooking",
+        "link":"/articles/cooking",
+        "active": false
+    },
+    {
+        "title":"About",
+        "link":"/about",
+        "active": true
+    }
+]

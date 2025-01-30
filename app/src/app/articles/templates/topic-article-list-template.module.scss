@@ -1,0 +1,34 @@
+.listing-content{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    //border: thin solid white;
+    width: 80%;
+    //flex-wrap: wrap;
+
+    .section-header{
+        padding-top: 15px;
+        //border: thin solid teal;
+        text-align: left;
+    }
+
+    .topic-section-content{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        margin: auto;
+        //border: thin solid teal;
+    }
+
+     .article-section-content{
+        // border: thin solid teal;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        text-align: left;
+        width: 100%;
+    }
+}

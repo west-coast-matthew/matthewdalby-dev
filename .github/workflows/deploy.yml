@@ -1,0 +1,68 @@
+name: Deploy blog to Linode VPS
+
+on:
+  push:
+    branches:
+      - development
+
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Deployment environment"
+        required: true
+        default: development
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        working-directory: ./app
+
+      - name: Build Next.js app
+        working-directory: ./app
+        run: yarn run build
+
+      - name: Debug built files
+        run: ls -laR ./app
+
+      - name: Prepare deployment directory
+        run: |
+          mkdir deploy
+          cp -r ./app/.next ./deploy/
+          cp -r ./app/public ./deploy/
+          cp ./app/package.json ./deploy/
+          cp ./app/yarn.lock ./deploy/
+
+      - name: Copy files to VPS via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ vars.VPS_HOST }}
+          username: ${{ vars.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: deploy
+          target: ${{ vars.VPS_PATH }}
+          strip_components: 1
+
+      - name: Restart app on VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ vars.VPS_HOST }}
+          username: ${{ vars.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ${{ vars.VPS_PATH }}
+            yarn install --frozen-lockfile --production
+            pm2 delete matthewdalby.dev || true
+            pm2 start yarn --name matthewdalby.dev -- start -- -p 3000 -H 0.0.0.0
+            pm2 save

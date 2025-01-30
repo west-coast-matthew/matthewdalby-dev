@@ -1,0 +1,145 @@
+
+$background-color: #1C1B23;
+$font-base-color: rgb(200, 198, 215);
+$h1-font-color: #FFFFFF;
+$h2-font-color: rgb(148, 144, 167);
+$h3-font-color: rgb(148, 144, 167);
+
+@font-face {
+  font-family: 'ClashDisplay-Extralight';
+  src: url(http://localhost:3000/fonts/ClashDisplay-Extralight.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'ClashDisplay-Light';
+  src: url(http://localhost:3000/fonts/ClashDisplay-Light.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'ClashDisplay-Medium';
+  src: url(http://localhost:3000/fonts/ClashDisplay-Medium.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'ClashDisplay-Regular';
+  src: url(http://localhost:3000/fonts/ClashDisplay-Regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'ClashDisplay-Semibold';
+  src: url(http://localhost:3000/fonts/ClashDisplay-Semibold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'ClashDisplay-Variable';
+  src: url(http://localhost:3000/fonts/ClashDisplay-Variable.woff2) format('woff2');
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to { 
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.anim-fade-in {
+  animation: fade-in 1s ease-in .9s forwards;
+}
+
+@keyframes drop-down-fade-in {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+  }
+  to { 
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-fade-in {
+  animation: drop-down-fade-in 2s linear forwards;
+}
+
+body.main{
+
+  // font-family: 'ClashDisplay-Light';
+
+  font-family: ClashDisplay-Regular;
+  background-color: $background-color;
+  color: $font-base-color;
+  // color: blue;
+  // font-family: Clash Display, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+  text-align: center;
+  font-sizE: 1.25rem;
+
+  h1{
+    color: $h1-font-color;
+    line-height: 0px;
+    font-family: ClashDisplay-Semibold;
+  }
+
+  h2{
+    // color: blue;
+    line-height: 25px;
+    font-family: ClashDisplay-Medium;
+    // font-size: 2em;
+  }
+
+  h3{
+    color: $h3-font-color;
+  }
+
+  .footer{
+    border-top: thin solid $font-base-color;
+    width: 95%;
+    text-align: center;
+    margin: auto;
+  }
+
+  a:link { color: $font-base-color; text-decoration: none; }  
+  a:visited { color: $font-base-color; }  
+  a:hover { color: $font-base-color; }  
+  a:active { color: $font-base-color; } 
+
+}
+
+.main-panel{
+  // min-height: 90vh;
+}
+
+.subtitle{
+  opacity: 0;
+}
+
+.generic-main-content{
+  width: 80%;
+  margin: auto;
+  text-align: left;
+}
+
+.topic-display-cell{
+  a { 
+    color: teal;
+    text-decoration: underline;
+  }
+
+  //a:link { color: $font-base-color; }  
+  //a:visited { color: $font-base-color; }  
+  //a:hover { color: $font-base-color; }  
+  //a:active { color: $font-base-color; } 
+
+  
+
+}
+
+.link{
+  // color: teal;
+  text-decoration: underline;
+}

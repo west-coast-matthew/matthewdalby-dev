@@ -1,0 +1,32 @@
+// *******************************************************************
+// src/storage.ts
+// *******************************************************************
+import { AsyncLocalStorage } from "async_hooks";
+const storage = new AsyncLocalStorage<{[key: string]: any}>(); 
+export default storage;
+
+// *******************************************************************
+// src/loan-app-processor.ts
+// *******************************************************************
+export const processLoanApplication = (app:LoanApplication):LoanApplication =>{
+    console.log(`attempting to process new application.`);
+
+    const transactionId:string = AuditAgent.initTransaction();
+    storage.run({ transactionId: transactionId }, () => {
+        processLoanApplicationInternal(app);
+    });
+
+    return app;
+}
+
+// *******************************************************************
+// Accesing the transaction id (src/monitoring/audit-agent.ts)
+// *******************************************************************
+import storage from "@/storage";
+
+...
+
+static getCurrentTransactionId():string{
+        const store = storage.getStore();
+        return store?.transactionId; 
+}
