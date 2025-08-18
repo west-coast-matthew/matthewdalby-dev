@@ -32,12 +32,11 @@ export async function POST(req: NextRequest) {
 
   try {
     transporter.sendMail(mailOptions);
+    return new Response(JSON.stringify({ message: "Success!" }), {
+      status: 200,
+    });
   } catch (error) {
     console.warn(error);
+    return new Response(JSON.stringify({ message: error }), { status: 500 });
   }
-
-  // Simulate a delay for processing
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  return new Response(JSON.stringify({ message: "Success!" }), { status: 200 });
 }
