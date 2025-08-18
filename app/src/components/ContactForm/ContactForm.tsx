@@ -2,14 +2,12 @@
 
 import { FC, useState } from "react";
 import styles from "./ContactForm.module.scss";
-import Img from "../../../public/icons/thumbs-up-icon.svg";
 import cx from "classnames";
 //import MouseImg from '../../../public/icons/mouse.svg';
 
 const ContactForm: FC = ({}) => {
   const [loading, setLoading] = useState(false);
   const [wasPosted, setWasPosted] = useState(false);
-  const [displaySubscribeOptIn, setDisplaySubscribeOptIn] = useState(false);
 
   const onSubmit = async (e: React.FormEvent) => {
     // Prevent the form from submitting the traditional way
