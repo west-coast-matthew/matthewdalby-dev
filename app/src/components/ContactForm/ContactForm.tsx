@@ -23,9 +23,8 @@ const ContactForm: FC = ({}) => {
     // 👇 A nice little track to get all the form values as an object
     const form = e.target as HTMLFormElement;
     const formValues = Object.fromEntries(new FormData(form).entries());
-
+    console.log("formValues", formValues);
     setLoading(true);
-    setWasPosted(true);
 
     try {
       await fetch("/api/contact", {
@@ -41,6 +40,7 @@ const ContactForm: FC = ({}) => {
       });
 
       setLoading(false);
+      setWasPosted(true);
 
       // Reset the form values after a successful submission
       form.reset();
@@ -53,7 +53,7 @@ const ContactForm: FC = ({}) => {
 
   const getForm = () => {
     return (
-      <form onSubmit={onSubmit}>
+      <form encType="application/x-www-form-urlencoded" onSubmit={onSubmit}>
         <div>
           <input type="text" name="name" placeholder="Your Name" required />
         </div>
@@ -69,17 +69,8 @@ const ContactForm: FC = ({}) => {
           <textarea name="message" placeholder="Comments" required />
         </div>
         <div className={styles["newsletter-opt-in-panel"]}>
-          <input
-            type="checkbox"
-            id="newsletter-opt-in"
-            name="optIn"
-            value="true"
-            onClick={() => {
-              setDisplaySubscribeOptIn(!displaySubscribeOptIn);
-            }}
-          />
-          <label htmlFor="newsletter-opt-in">Sign up for my newsletter</label>
-          {displaySubscribeOptIn && <Img class={styles["fade-in"]} />}
+          <input type="checkbox" id="optIn" name="optIn" value="true" />
+          <label htmlFor="optIn">Sign up for my newsletter</label>
         </div>
         <button disabled={loading} type="submit">
           Reach Out!
