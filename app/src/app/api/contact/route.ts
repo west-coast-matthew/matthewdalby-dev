@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
   const name = body.name;
   const email = body.email;
   const message = body.message;
-  const optIn = body.optIn;
+  const optIn = body.optIn || "no";
 
   const mailOptions = {
     from: "matthew@matthewdalby.dev",
