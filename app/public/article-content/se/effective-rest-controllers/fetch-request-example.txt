@@ -1,0 +1,10 @@
+fetch ('http://myapi.com')
+.then((rawData)=>rawData.json())
+.then((jsonData)=>{
+	
+	if(jsonData.status=="error"){
+
+		...
+	}
+
+});

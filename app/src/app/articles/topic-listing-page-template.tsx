@@ -44,7 +44,6 @@ export default async function ArticlesPage() {
     <div className={styles["main-panel"]}>
       <h1 className={cx(styles["subtitle"], styles["dropdown-fade-in"])}></h1>
       <h2 className={cx(styles["anim-fade-in"], styles["subtitle"])}></h2>
-
       <BlogTopicNavPanel />
 
       <div className={styles["listing-content"]}>{loadArticleCategories()}</div>

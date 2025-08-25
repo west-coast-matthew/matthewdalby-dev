@@ -1,0 +1,29 @@
+// node.js
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def read_root():
+    return {"message": "Hello World"}
+
+    const express = require('express');
+const app = express();
+
+// java
+@RestController
+public class GreetingController {
+
+@GetMapping("/hello")
+    public String sayHello() {
+        return "Hello from Spring Boot REST!";
+    }
+
+// python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def read_root():
+    return {"message": "Hello World"}

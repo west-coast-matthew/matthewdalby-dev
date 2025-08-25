@@ -1,0 +1,13 @@
+/**
+ * Test battery for operations related to inventory tracking.
+ * Since we are focusing on tracing operations, we mock the
+ * data used to model activity.
+ */
+
+import { ActivityModel } from "@/services/entity-load-service";
+
+...
+
+jest.mock("../../src/services/entity-load-service", () => ({
+  loadActivityGraph: jest.fn(() => loadMockActivityGraph()),
+}));

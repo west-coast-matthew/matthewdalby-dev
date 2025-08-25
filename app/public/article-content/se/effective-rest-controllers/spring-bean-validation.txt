@@ -1,0 +1,11 @@
+@PostMapping
+public String submitForm(@Valid @RequestBody Product produce, BindingResult bindingResult) {
+    
+    if (bindingResult.hasErrors()) {
+        // Handle validation errors
+        ...
+
+    }
+    
+    ...
+}

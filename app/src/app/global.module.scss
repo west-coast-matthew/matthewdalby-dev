@@ -1,38 +1,37 @@
-
-$background-color: #1C1B23;
+$background-color: #1c1b23;
 $font-base-color: rgb(200, 198, 215);
-$h1-font-color: #FFFFFF;
+$h1-font-color: #ffffff;
 $h2-font-color: rgb(148, 144, 167);
 $h3-font-color: rgb(148, 144, 167);
 
 @font-face {
-  font-family: 'ClashDisplay-Extralight';
-  src: url(/fonts/ClashDisplay-Extralight.woff2) format('woff2');
+  font-family: "ClashDisplay-Extralight";
+  src: url(/fonts/ClashDisplay-Extralight.woff2) format("woff2");
 }
 
 @font-face {
-  font-family: 'ClashDisplay-Light';
-  src: url(/fonts/ClashDisplay-Light.woff2) format('woff2');
+  font-family: "ClashDisplay-Light";
+  src: url(/fonts/ClashDisplay-Light.woff2) format("woff2");
 }
 
 @font-face {
-  font-family: 'ClashDisplay-Medium';
-  src: url(/fonts/ClashDisplay-Medium.woff2) format('woff2');
+  font-family: "ClashDisplay-Medium";
+  src: url(/fonts/ClashDisplay-Medium.woff2) format("woff2");
 }
 
 @font-face {
-  font-family: 'ClashDisplay-Regular';
-  src: url(/fonts/ClashDisplay-Regular.woff2) format('woff2');
+  font-family: "ClashDisplay-Regular";
+  src: url(/fonts/ClashDisplay-Regular.woff2) format("woff2");
 }
 
 @font-face {
-  font-family: 'ClashDisplay-Semibold';
-  src: url(/fonts/ClashDisplay-Semibold.woff2) format('woff2');
+  font-family: "ClashDisplay-Semibold";
+  src: url(/fonts/ClashDisplay-Semibold.woff2) format("woff2");
 }
 
 @font-face {
-  font-family: 'ClashDisplay-Variable';
-  src: url(/fonts/ClashDisplay-Variable.woff2) format('woff2');
+  font-family: "ClashDisplay-Variable";
+  src: url(/fonts/ClashDisplay-Variable.woff2) format("woff2");
 }
 
 @keyframes fade-in {
@@ -40,14 +39,14 @@ $h3-font-color: rgb(148, 144, 167);
     opacity: 0;
     visibility: hidden;
   }
-  to { 
+  to {
     opacity: 1;
     visibility: visible;
   }
 }
 
 .anim-fade-in {
-  animation: fade-in 1s ease-in .9s forwards;
+  animation: fade-in 1s ease-in 0.9s forwards;
 }
 
 @keyframes drop-down-fade-in {
@@ -56,7 +55,7 @@ $h3-font-color: rgb(148, 144, 167);
     visibility: hidden;
     transform: translateY(-10px);
   }
-  to { 
+  to {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -67,79 +66,61 @@ $h3-font-color: rgb(148, 144, 167);
   animation: drop-down-fade-in 2s linear forwards;
 }
 
-body.main{
-
+body.main {
   // font-family: 'ClashDisplay-Light';
 
   font-family: ClashDisplay-Regular;
   background-color: $background-color;
   color: $font-base-color;
-  // color: blue;
-  // font-family: Clash Display, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
   text-align: center;
-  font-sizE: 1.25rem;
+  font-size: 1.25rem;
 
-  h1{
+  h1 {
     color: $h1-font-color;
     line-height: 0px;
     font-family: ClashDisplay-Semibold;
   }
 
-  h2{
-    // color: blue;
+  h2 {
     line-height: 25px;
     font-family: ClashDisplay-Medium;
-    // font-size: 2em;
   }
 
-  h3{
+  h3 {
     color: $h3-font-color;
   }
 
-  .footer{
+  .footer {
     border-top: thin solid $font-base-color;
     width: 95%;
     text-align: center;
     margin: auto;
   }
 
-  a:link { color: $font-base-color; text-decoration: none; }  
-  a:visited { color: $font-base-color; }  
-  a:hover { color: $font-base-color; }  
-  a:active { color: $font-base-color; } 
+  a:link {
+    color: $font-base-color;
+    text-decoration: none;
+  }
+  a:visited {
+    color: $font-base-color;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $font-base-color;
+    text-decoration: underline;
+  }
+  p a:active {
+    color: $font-base-color;
+    text-decoration: none;
+  }
 
+  letter-spacing: 1px;
+
+  //border: thick solid teal;
 }
 
-.main-panel{
-  // min-height: 90vh;
-}
-
-.subtitle{
-  opacity: 0;
-}
-
-.generic-main-content{
+.generic-main-content {
   width: 80%;
   margin: auto;
   text-align: left;
-}
-
-.topic-display-cell{
-  a { 
-    color: teal;
-    text-decoration: underline;
-  }
-
-  //a:link { color: $font-base-color; }  
-  //a:visited { color: $font-base-color; }  
-  //a:hover { color: $font-base-color; }  
-  //a:active { color: $font-base-color; } 
-
-  
-
-}
-
-.link{
-  // color: teal;
-  text-decoration: underline;
 }

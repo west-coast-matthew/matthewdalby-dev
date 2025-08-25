@@ -1,0 +1,26 @@
+
+Java/Spring
+public class CategoryController {
+
+	@GetMapping("/productCategory")
+	public String addHeader(HttpServletResponse response) {
+	    response.setHeader("Cache-Control", "public, max-age=3600");
+	    ...
+	}
+
+	...
+}
+
+Node.js
+app.get('/productCategory', (req, res) => {
+  res.set('Cache-Control', 'public, max-age=3600'); // Sets a custom header
+  ...
+});
+
+Python/FastAPI
+
+@app.get("/items/")
+async def read_items(response: Response):
+    response.headers["Cache-Control"] = "public, max-age=3600"
+    ...
+

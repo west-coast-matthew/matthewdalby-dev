@@ -16,10 +16,13 @@ const ArticleListingCell: FC<Props> = ({ article, link }) => {
         <div className={styles["article-title-panel"]}>
           <div>
             <h1>{article.title}</h1>
+            <span className={styles["article-date"]}>
+              {formatDate(article.postedDate)}
+            </span>
           </div>
-          <div>{formatDate(article.postedDate)}</div>
+          <div></div>
         </div>
-        <div>{article.summary}</div>
+        <div className={styles["article-summary"]}>{article.summary}</div>
       </Link>
     </div>
   );

@@ -1,8 +1,0 @@
-HTTP/1.1 200 OK
-vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch
-content-type: text/plain;charset=UTF-8
-Date: Mon, 18 Aug 2025 13:21:29 GMT
-Connection: keep-alive
-Keep-Alive: timeout=5
-Transfer-Encoding: chunked
-

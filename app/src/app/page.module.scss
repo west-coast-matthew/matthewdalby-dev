@@ -1,7 +1,6 @@
-@use './global.module.scss';
+@use "./global.module.scss";
 
 .page {
-
   /*
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
@@ -45,7 +44,7 @@
   margin-bottom: 8px;
 }
 
-.main-content{
+.main-content {
   width: 80%;
   margin: auto;
 }
@@ -55,4 +54,3 @@
   display: flex;
   gap: 24px;
 }
-
