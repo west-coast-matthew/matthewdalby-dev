@@ -1,24 +1,31 @@
 import { FC } from "react";
-import Image from 'next/image';
-import styles from './ImageReference.module.scss';
+import Image from "next/image";
+import styles from "./ImageReference.module.scss";
 
-export interface Props{
-    imgRef: string;
-    description?: string;
+export interface Props {
+  imgRef: string;
+  description?: string;
+  height?: number;
+  width?: number;
 }
 
-const ImageReference:FC<Props> = ({imgRef, description})=>{
-    return (
-        <div className={styles['image-reference']}>
-            <Image 
-        src={imgRef} 
+const ImageReference: FC<Props> = ({
+  imgRef,
+  description,
+  height = 400,
+  width = 600,
+}) => {
+  return (
+    <div className={styles["image-reference"]}>
+      <Image
+        src={imgRef}
         alt="Description of the image"
-        width={600} 
-        height={400}
+        height={height}
+        width={width}
       />
-        <div className={styles['description']}>{description}</div>
-        </div>
-    )
-}
+      <div className={styles["description"]}>{description}</div>
+    </div>
+  );
+};
 
 export default ImageReference;

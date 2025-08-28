@@ -4,9 +4,6 @@ import ArticleTemplateLayout from "@/app/articles/article-template";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import CodeSnippet from "@/components/CodeSnippet";
-import path from "path";
-import fs from "fs";
-import ImageReference from "@/components/ImageReference";
 import { getExample1 } from "./code-examples";
 
 /**

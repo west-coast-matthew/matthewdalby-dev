@@ -2045,10 +2045,34 @@
   dependencies:
     "@types/deep-eql" "*"
 
+"@types/createjs-lib@*":
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/@types/createjs-lib/-/createjs-lib-0.0.33.tgz#03b0d67f6ae33a4e3239ef2184ccbb4fe4a91844"
+  integrity sha512-mvK1sn2qSyGPwctg/MsjAP5m3/TBx83eB0hcEdZ6UqpuzQqCUWpVyyQddqkbAsKRpMECK0s7JosYXoTtIuNbhw==
+
+"@types/createjs@^0.0.32":
+  version "0.0.32"
+  resolved "https://registry.yarnpkg.com/@types/createjs/-/createjs-0.0.32.tgz#5def75cca336aec9ac84f5625b5f9e05b8e25d93"
+  integrity sha512-MxZH+aP1XLqL5BpPmKmqAUzGaDP6HeMCAPAZpEaF2LbJi8Tm7FnHZ2beOnqLBsPafuq0EFj2mYfKOoaApAAeGA==
+  dependencies:
+    "@types/createjs-lib" "*"
+    "@types/easeljs" "*"
+    "@types/preloadjs" "*"
+    "@types/soundjs" "*"
+    "@types/tweenjs" "*"
+
 "@types/deep-eql@*":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@types/deep-eql/-/deep-eql-4.0.2.tgz#334311971d3a07121e7eb91b684a605e7eea9cbd"
   integrity sha512-c9h9dVVMigMPc4bwTvC5dxqtqJZwQPePsWjPlpSOnojbor6pGqdk541lfA7AqFQr5pB1BRdq0juY9db81BwyFw==
+
+"@types/easeljs@*":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@types/easeljs/-/easeljs-1.0.5.tgz#f6641c3bd496fb892b90f9bd5f81a77fb4733932"
+  integrity sha512-YRWGkZdq4trhJhieE0NdLTbOp5zT5yunPJKNqQJWq/X8y7qlmGeQB8hPnQHzMbW9iY38ZV91oXgW7V3U5VY2uw==
+  dependencies:
+    "@types/createjs-lib" "*"
+    "@types/tweenjs" "*"
 
 "@types/estree@1.0.7", "@types/estree@^1.0.6":
   version "1.0.7"
@@ -2104,6 +2128,13 @@
   resolved "https://registry.npmjs.org/@types/parse-json/-/parse-json-4.0.2.tgz"
   integrity sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==
 
+"@types/preloadjs@*":
+  version "0.6.36"
+  resolved "https://registry.yarnpkg.com/@types/preloadjs/-/preloadjs-0.6.36.tgz#9e40f988dce9b1d5a71d4a9d145d3f60e813cdf6"
+  integrity sha512-/Xo6BRCkvZiw0VXHszRQJnnTHyfkISPD5DiMj0JDrmQWiw104BxoijjeIlZ0umQxXEUb+gWLZsdZbuEhmP5vsw==
+  dependencies:
+    "@types/createjs-lib" "*"
+
 "@types/react-dom@19.1.5":
   version "19.1.5"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-19.1.5.tgz"
@@ -2122,6 +2153,21 @@
   integrity sha512-JeG0rEWak0N6Itr6QUx+X60uQmN+5t3j9r/OVDtWzFXKaj6kD1BwJzOksD0FF6iWxZlbE1kB0q9vtnU2ekqa1Q==
   dependencies:
     csstype "^3.0.2"
+
+"@types/soundjs@*":
+  version "0.6.31"
+  resolved "https://registry.yarnpkg.com/@types/soundjs/-/soundjs-0.6.31.tgz#ca55cf777830efb55fa752191ec1ef9ca0fcd69d"
+  integrity sha512-5bditJi7P1YbRIRa1UFxIr+8vKJYEc6nTZb5NL0647rWGqGf8Ih4GD+0aDWteWIG17EXPw+VTOQE/8LHitnn4A==
+  dependencies:
+    "@types/createjs-lib" "*"
+    "@types/preloadjs" "*"
+
+"@types/tweenjs@*":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@types/tweenjs/-/tweenjs-1.0.8.tgz#800748b468a36ceb16e58a268dba3c370dd023f2"
+  integrity sha512-/HTVWu8c+AUJFK9P6b3LRzfodAYwDogtQKoH3ovZmnOY4aNJf+k3VqPx+D+AsLZP06AmoSLzqu9n/E5XCglCZw==
+  dependencies:
+    "@types/createjs-lib" "*"
 
 "@types/unist@^2":
   version "2.0.11"
@@ -2872,6 +2918,11 @@ cosmiconfig@^7.0.0:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
+
+createjs@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/createjs/-/createjs-1.0.1.tgz#163e8ba35814f62c8033cd9628033f190dfdaa9f"
+  integrity sha512-VutFczgM8GNzOSiFKlYEwFRgZRMQkZt34ooaewKi7lzxuQ7JSsUs/Y1qb95G4CKOnHA/C/yghCJ6wfivuKOawA==
 
 cross-spawn@^7.0.6:
   version "7.0.6"
@@ -5246,6 +5297,11 @@ queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
+
+react-adobe-animate@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-adobe-animate/-/react-adobe-animate-3.1.0.tgz#c904bb668c34ca92ac5a78d89fe95d18baf8dba4"
+  integrity sha512-Kd96q36XZqEe7fZ3k+7jp6uHMebDaLyHhZR3YVUgmGa5SNHqV2q5zHZaPNRJJKjgt7gFT6e/I44BoTfFecXQBw==
 
 react-awesome-reveal@^4.3.1:
   version "4.3.1"

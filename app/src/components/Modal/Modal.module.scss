@@ -1,0 +1,70 @@
+.modal {
+  // Controlls screen overlay
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modal-content {
+    background: grey;
+    padding: 20px;
+    border-radius: 8px;
+    /* Remove fixed 'max-width' */
+    /* Remove any 'width' or 'height' properties */
+    width: auto;
+    max-width: 90%; /* This is better for responsiveness */
+    max-height: 90vh; /* Adjust based on your design needs */
+    overflow-y: auto; /* Adds a scrollbar for content that exceeds height */
+    position: relative;
+    //z-index: 1001;
+  }
+
+  .modal-header-panel {
+    border: thin solid teal;
+    display: flex; /* Enables Flexbox for the parent container */
+    justify-content: space-between; /* Distributes space between items, pushing them to opposite ends */
+    align-items: center; /* Vertically centers the items within the title bar */
+    width: 100%; /* Ensures the title bar spans the full width of its parent */
+    /* Add other styling for the title bar, e.g., background-color, padding */
+    padding: 5px;
+
+    .title {
+      /* No specific alignment needed as justify-content handles it */
+      /* You can add font styles, color, etc. */
+      font-weight: bold;
+    }
+
+    .close-button {
+      /* No specific alignment needed as justify-content handles it */
+      /* Add styling for the close button, e.g., cursor, color */
+      cursor: grab !important;
+      padding-right: 15px;
+      //border: thin solid white;
+      //color: #888;
+    }
+  }
+
+  .modal-header {
+    border: thick solid white;
+    //margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    //padding-bottom: 10px;
+    height: 50px;
+    //height: auto;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .modal-footer {
+    margin-top: 20px;
+    text-align: right;
+  }
+}
