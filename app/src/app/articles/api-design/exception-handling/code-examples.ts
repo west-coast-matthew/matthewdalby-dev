@@ -21,7 +21,7 @@ export const getExample2 = () => {
     "article-content",
     "se",
     "exception-handling",
-    "java-exception-handler.ts"
+    "java-exception-handler.txt"
   );
 
   return fs.readFileSync(filePath, "utf-8");
@@ -34,7 +34,7 @@ export const getExample3 = () => {
     "article-content",
     "se",
     "exception-handling",
-    "node-exception-handler.ts"
+    "node-exception-handler.txt"
   );
 
   return fs.readFileSync(filePath, "utf-8");
