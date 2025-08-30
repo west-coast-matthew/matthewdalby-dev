@@ -1,11 +1,9 @@
-//import styles from "../templates/topic-article-list-template.module.scss";
 import styles from "../articles/templates/topic-article-list-template.module.scss";
 import { Metadata } from "next";
 import Topic from "@/types/topic.type";
 import TopicDisplayCell from "@/components/TopicDisplayCell";
 import BreadcrumbPanel from "@/components/Breadcrumb";
-import ArticleListingCell from "@/components/ArticleListingCell/ArticleListingCell";
-import { parseHeaders } from "@/utils/page-utils";
+import { getAllActiveTopics } from "../../services/api-service.service";
 
 /**
  * Article navigation page
@@ -49,7 +47,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Template() {
-  const { topics, selPath, articles } = await parseHeaders();
+  //const { topics, selPath, articles } = await parseHeaders();
+
+  const topics = getAllActiveTopics();
 
   const loadTopics = () => {
     if (topics.length === 0) {
@@ -78,37 +78,11 @@ export default async function Template() {
     );
   };
 
-  const loadArticles = () => {
-    if (articles.length === 0) {
-      return <></>;
-    }
-
-    return (
-      <>
-        <div className={styles["section-header"]}>
-          ({articles.length}) Available articles
-        </div>
-        <div className={styles["article-section-content"]}>
-          {articles.map((article, index) => (
-            <ArticleListingCell
-              key={String(index)}
-              article={article}
-              link={`${selPath}/${article.link}`}
-            />
-          ))}
-        </div>
-      </>
-    );
-  };
-
   return (
     <div>
-      <BreadcrumbPanel path={selPath} />
+      <BreadcrumbPanel path="/topics" />
 
-      <div className={styles["listing-content"]}>
-        {loadTopics()}
-        {loadArticles()}
-      </div>
+      <div className={styles["listing-content"]}>{loadTopics()}</div>
     </div>
   );
 }

@@ -38,7 +38,7 @@ export async function middleware(request: NextRequest) {
     );
     console.log(`middlware: displaying all topics, pathName`, pathName);
     //const altResponse = NextResponse.rewrite(
-    new URL("/articles/templates/", request.url);
+    // new URL("/articles/templates/", request.url);
     //);
     response.headers.set(TOPICS, JSON.stringify(topics));
     const topLevelTopics = getAllActiveTopics();
@@ -114,5 +114,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/articles/:path*", "/topics"],
+  matcher: ["/articles/:path*"],
 };
