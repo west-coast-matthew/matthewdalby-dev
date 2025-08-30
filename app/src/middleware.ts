@@ -30,7 +30,7 @@ export async function middleware(request: NextRequest) {
   if (pathName === "/articles") {
     const topics = filterActiveTopics(cfg);
     response.headers.set(TOPICS, JSON.stringify(topics));
-
+    console.log(`displaying all topics, url is follows`, request.url);
     const altResponse = NextResponse.rewrite(
       new URL("/articles/templates", request.url)
     );
