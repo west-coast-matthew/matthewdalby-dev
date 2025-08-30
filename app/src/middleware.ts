@@ -26,21 +26,30 @@ export async function middleware(request: NextRequest) {
   const subPath = pathName.replace("/articles/", "/");
   response.headers.set(SEL_PATH, pathName);
 
+  console.log(`middleware: intercepting request....`);
+
   // Handle case where we just need to retrieve all topic level topics and display them
-  if (pathName === "/articles") {
+  if (pathName === "/topics") {
     const topics = filterActiveTopics(cfg);
-    response.headers.set(TOPICS, JSON.stringify(topics));
-    console.log(`displaying all topics, url is follows`, request.url);
-    const altResponse = NextResponse.rewrite(
-      new URL("/articles/templates", request.url)
+
+    console.log(
+      `middleware: displaying all topics, url is follows`,
+      request.url
     );
+    console.log(`middlware: displaying all topics, pathName`, pathName);
+    //const altResponse = NextResponse.rewrite(
+    new URL("/articles/templates/", request.url);
+    //);
+    response.headers.set(TOPICS, JSON.stringify(topics));
     const topLevelTopics = getAllActiveTopics();
-    altResponse.headers.set(TOPICS, JSON.stringify(topLevelTopics));
-    return altResponse;
+    response.headers.set(TOPICS, JSON.stringify(topLevelTopics));
+    return response;
   }
   // Handle cases where we display either sub topics, or articles for a selected topic/sub
   // topic or article
   else if (pathName.startsWith("/articles")) {
+    console.log(`middleware: displaying articles for a selected topic....`);
+
     const altResponse = NextResponse.rewrite(
       new URL("/articles/templates", request.url)
     );
@@ -75,6 +84,7 @@ export async function middleware(request: NextRequest) {
     }
     // Handle other cases where an article was selected.
     else {
+      console.log(`middleware: article selected....`);
       // Get parent topic and set reference.
       const parentTopicUrl = getParentUrl(subPath);
       const articleParentTopic = getSelTopic(parentTopicUrl, cfg);
@@ -99,10 +109,10 @@ export async function middleware(request: NextRequest) {
       return response;
     }
   }
-
+  console.log(`middleware: no match, default handler....`);
   return response;
 }
 
 export const config = {
-  matcher: ["/articles/:path*"],
+  matcher: ["/articles/:path*", "/topics"],
 };

@@ -10,13 +10,19 @@ const BreadcrumbPanel: FC<Props> = ({ path }) => {
   if (path === "none") {
     return (
       <div className={styles["breadcrumb-panel"]}>
-        <div>Articles</div>
+        <div>Topics</div>
       </div>
     );
   }
 
   const safePath = path ?? "/";
+
   const pathTokens = safePath.split("/").filter(Boolean);
+
+  console.log(`path tokens`, pathTokens);
+  if (pathTokens[0] === "articles") {
+    pathTokens[0] = "topics";
+  }
 
   const breadcrumbs: Array<React.ReactElement> = [];
   let linkTrail = safePath.startsWith("/articles") ? "/" : "/articles/";
