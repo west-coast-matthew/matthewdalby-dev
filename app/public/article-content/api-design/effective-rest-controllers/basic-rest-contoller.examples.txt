@@ -1,14 +1,14 @@
 // node.js
-from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/")
-async def read_root():
-    return {"message": "Hello World"}
-
-    const express = require('express');
+const express = require('express');
 const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+app.listen(port, () => {
+    console.log(`Hello World!`);
+});
 
 // java
 @RestController

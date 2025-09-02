@@ -2,12 +2,7 @@ import { Metadata } from "next";
 import { parseHeaders } from "@/utils/page-utils";
 import ArticleTemplateLayout from "@/app/articles/article-template";
 import CodeSnippet from "@/components/CodeSnippet";
-import {
-  getExample1,
-  getExample2,
-  getExample3,
-  getExample4,
-} from "@/app/articles/api-design/designing-controllers/code-examples";
+import { getArticleContent } from "@/app/articles/api-design/designing-controllers/code-examples";
 import Link from "next/link";
 
 /**
@@ -85,7 +80,9 @@ export default async function ArticlePage() {
         create APIs...
       </p>
 
-      <CodeSnippet srcCode={getExample1()}></CodeSnippet>
+      <CodeSnippet
+        srcCode={getArticleContent("basic-rest-contoller.examples")}
+      ></CodeSnippet>
       <i>
         Not building rockets here, the above is a few snippets of &apos;hello
         world&apos; examples of basic entry points for REST controllers. that is
@@ -154,7 +151,9 @@ export default async function ArticlePage() {
         Let&apos;s take a look at an example.
       </p>
 
-      <CodeSnippet srcCode={getExample2()}></CodeSnippet>
+      <CodeSnippet
+        srcCode={getArticleContent("fetch-request-example")}
+      ></CodeSnippet>
       <i>An example of an exception masked by an 200 response code</i>
 
       <p>
@@ -214,7 +213,9 @@ export default async function ArticlePage() {
         take a look at an example.
       </p>
 
-      <CodeSnippet srcCode={getExample3()}></CodeSnippet>
+      <CodeSnippet
+        srcCode={getArticleContent("spring-bean-validation")}
+      ></CodeSnippet>
       <i>Implementing controller level request validation</i>
 
       <p>
@@ -256,7 +257,9 @@ export default async function ArticlePage() {
         indicate to the client that the information seldomly changes.
       </p>
 
-      <CodeSnippet srcCode={getExample4()}></CodeSnippet>
+      <CodeSnippet
+        srcCode={getArticleContent("cache-control-examples")}
+      ></CodeSnippet>
       <i>Explicitly indicating to the client that data is safe to cache</i>
 
       <h3>Summary</h3>
