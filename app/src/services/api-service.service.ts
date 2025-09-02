@@ -151,7 +151,7 @@ export const cfg: Array<Topic> = [
       {
         title: "REST: Exception Handling",
         link: "/exception-handling",
-        summary: "A standardized approach to exception handling",
+        summary: "A standardized approach to exception handling in REST APIs.",
         postedDate: parse("2025-01-20", "yyyy-MM-dd", new Date()),
         active: true,
       },
@@ -276,7 +276,7 @@ export const cfg: Array<Topic> = [
     ],
   },
   {
-    title: "Node.js, Typescript",
+    title: "Node.js, Typescript, React",
     link: "/node-typescript",
     summary: "Thoughts/obervations of the tech industry",
     active: true,
@@ -294,6 +294,13 @@ export const cfg: Array<Topic> = [
         summary: "Developing a REST API with a shared module",
         postedDate: parse("2024-06-18", "yyyy-MM-dd", new Date()),
         active: false,
+      },
+      {
+        title: "Tankstack in Action",
+        link: "/tanstack-in-action",
+        summary: "Developing a REST API with a shared module",
+        postedDate: parse("2025-08-28", "yyyy-MM-dd", new Date()),
+        active: true,
       },
     ],
   },

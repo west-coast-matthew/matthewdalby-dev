@@ -1,0 +1,15 @@
+fetch ('http://myapi.com')
+.then((rawData)=>rawData.json())
+.then((jsonData)=>{
+	
+	// Manually check the message to determine if the operation actually suceeded
+	if(jsonData.status=="error"){
+
+		...
+	}
+
+	// Other valiations
+	if(jsonData.success=="true"){
+	if(jsonData.status=="succeeded"){
+
+});

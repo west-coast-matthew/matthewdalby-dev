@@ -1,0 +1,44 @@
+package com.wc_matthew.demo.exception_handling.exception;
+
+import org.springframework.http.HttpStatusCode;
+
+/**
+ * BaseException
+ * 
+ * Parent class for all custom application exceptions. 
+ * 
+ */
+public abstract class BaseException extends RuntimeException{
+	
+	public BaseException() {
+        super();
+    }
+
+	public String customMessage;
+	public String errCode;
+	public HttpStatusCode httpStatusCode;
+	
+	/**
+	 * All instances of custom exceptions used additional attributes in 
+	 * conjunction with just a standard message. 
+	 * 
+	 * @param message Standard message for all instances of a given type.
+	 * @param customMessage, provides additional contextual information, such as the 
+	 * reason for why attribute or business logic fails.... 
+	 * @param errCode Custom error code used to uniquely identify the exception 
+	 * type, intended for use by external monitoring applications.
+	 */
+    public BaseException(String message, String customMessage, String errCode) {
+        super(message);
+        this.customMessage = customMessage;
+        this.errCode = errCode;
+    }
+	
+}
+
+public class EntityValidationFailureException extends BaseException{
+	
+	public EntityValidationFailureException(String detailMsg) {
+		super("Entity validation failure", detailMsg, ErrorConstants.ENTITY_VALIDATION_ERR);
+	}
+}

@@ -1,0 +1,14 @@
+
+// A javascript example
+function doSomething {
+    ...
+    throw new ValidationException("For some reason.....");
+}
+
+// And a java implementation
+public void doSomething(){
+    ...
+
+    throw new ValidationException("For some reason......");
+
+}

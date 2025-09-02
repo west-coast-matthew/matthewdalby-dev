@@ -1,0 +1,27 @@
+/**
+    product-service.ts:
+
+    Logic is centralized into a sparate file concearned with the lower level details related to data retrieval.
+*/
+const fetchProducts = async () => {
+  const response = await fetch('/api/products'); 
+  if (!response.ok) {
+    throw new Error('Failed to fetch todos');
+  }
+  return response.json();
+};
+
+/**
+    ProductListComponent.tsx:
+
+    And now the end consumer implementation
+*/
+
+function ProductListComponent{
+    ...
+    const { data, isLoading, isError, error } = useQuery({
+        queryKey: ['todos'], // Unique key for caching and refetching
+        queryFn: fetchTodos, // The function that fetches the data
+    });
+
+}
