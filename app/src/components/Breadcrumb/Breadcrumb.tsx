@@ -15,10 +15,7 @@ const BreadcrumbPanel: FC<Props> = ({ path }) => {
     );
   }
 
-  // const safePath = path ? removeFirstToken(path) : "";
-
   const safePath = path ? path : "";
-
   const pathTokens = safePath.split("/").filter(Boolean);
 
   const breadcrumbs: Array<React.ReactElement> = [];

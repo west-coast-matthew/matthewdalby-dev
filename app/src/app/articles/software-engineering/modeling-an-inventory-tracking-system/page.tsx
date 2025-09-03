@@ -6,6 +6,9 @@ import ImageReference from "@/components/ImageReference";
 
 import ClientModalWrapper from "@/components/ClientModalWrapper/ClientModalWrapper";
 import UmlClassDiagram from "@/components/diagrams/inv-tracking/UmlClassDiagram/UmlClassDiagram";
+import CodeSnippet from "@/components/CodeSnippet";
+
+import { getArticleContent } from "../utils";
 
 /**
  * Represents an 'individual' article.
@@ -16,7 +19,8 @@ import UmlClassDiagram from "@/components/diagrams/inv-tracking/UmlClassDiagram/
  */
 
 export const metadata: Metadata = {
-  title: "Matthew Dalby: Articles: API Design: Exception Handling",
+  title:
+    "Matthew Dalby: Articles: API Design: Modeling an inventory tracking system",
 };
 
 export default async function ArticlePage() {
@@ -36,14 +40,16 @@ export default async function ArticlePage() {
         of work orders, and updating inventory related information.
       </p>
 
-      <ClientModalWrapper
-        title="Object Model UML Diagram"
-        subTitle="Mouse over class elements to view role specific information"
-        imgDesc="UML Class Diagram (Click to explore)"
-        imgRef="/article-content/se/inv-tracking-system/class-diagram.svg"
-      >
-        <UmlClassDiagram />
-      </ClientModalWrapper>
+      <p>
+        So basically this project models the internals of tracking activity
+        during a beverage manufacturing process. We need to support the ability
+        to select a given piece of equipment, and gain visibility into all
+        related recent activity. Additionally, in the event of a product recall,
+        we need to support the requirement to trace all impacted products from a
+        root cause for the recall. This is a good illustration of implementing
+        logic beyond supporting simple CRUD operations, and the unit level
+        testing efforts surrounding it.
+      </p>
 
       <p>
         This past project particularly sparked my interest as there was a lot of
@@ -65,14 +71,14 @@ export default async function ArticlePage() {
         into a few of the pain points.
       </p>
 
-      <b>Large monolithic application</b>
+      <h3>Large monolithic application</h3>
       <p>
         The application consisted of just under 200 screens, supported by around
         300 tables in an RDBMS. Deployment was &apos;big bang&apos;, where the
         entire application was packaged and shipped during a promotion cycle.
       </p>
 
-      <b>Overall poor performance</b>
+      <h3>Overall poor performance</h3>
       <p>
         Performance was an issue, and could be described as &apos;slow&apos; and
         &apos;slower&apos;. This was a result of inneficient use of an ORM
@@ -83,7 +89,7 @@ export default async function ArticlePage() {
         issued to display around 150 records.
       </p>
 
-      <b>Tightly coupled design</b>
+      <h3>Tightly coupled design</h3>
       <p>
         As I had previously mentioned, this was a limitation of the tech
         available around the early 2000 period. State was managed on the server,
@@ -151,8 +157,6 @@ export default async function ArticlePage() {
         address the more implementation specific details.
       </p>
 
-      <h2>The general manufacturing process</h2>
-
       <h3>Work orders</h3>
       <p>
         This should be a familliar in the manufacturing space, this should be a
@@ -178,7 +182,7 @@ export default async function ArticlePage() {
         adjustments before the final sign off.
       </p>
 
-      <h2>The general manufacturing process</h2>
+      <h3>The general manufacturing process</h3>
 
       <p>
         I have no specific experience with the manufacturing process for fruit
@@ -214,22 +218,22 @@ export default async function ArticlePage() {
 
       <ol>
         <li>
-          oranges are delivered by several truck loads where they sit in a large
+          Oranges are delivered by several truck loads where they sit in a large
           bin
         </li>
         <li>
-          the oranges are washed, and then they juice is extracted via a
+          The oranges are washed, and then they juice is extracted via a
           crushing process, the resulting juice is stored temporarily in a large
           bulk storage tank
         </li>
         <li>
-          the juice is then pasturized in smaller batches as the equipment
+          The juice is then pasturized in smaller batches as the equipment
           responsible for this has a smaller capacity that the original bulk
           storage tank. At some point, once this step is completed, then
           pasturized juice ends up in yet another bulk storage tank temporarily
         </li>
         <li>
-          from this point, the juice is divided with the intent of ultimately
+          From this point, the juice is divided with the intent of ultimately
           ending up in one of three final consumer products: with pulp, low
           pulp, and no pulp with calcium additive. the contents of the bulk
           storage tank at this stage marks the beggining of separate paths
@@ -262,7 +266,25 @@ export default async function ArticlePage() {
         time.
       </p>
 
+      <h3>The Resulting Object Model</h3>
+      <p>Let&apos;s take a look at the object model, which is as follows.</p>
+
+      <ClientModalWrapper
+        title="Object Model UML Diagram"
+        subTitle="Mouse over class elements to view role specific information"
+        imgDesc="UML Class Diagram (Click to explore)"
+        imgRef="/article-content/se/inv-tracking-system/class-diagram.svg"
+      >
+        <UmlClassDiagram />
+      </ClientModalWrapper>
+
       <h2>Tracing Activity</h2>
+      <p>
+        So given the above problem at hand, we need to track what is happening
+        not only for any given selected activity, but other related operations.
+        Additionally, we need to support the ability to trace historical
+        activity in the case that there is a product recall.
+      </p>
       <p>
         From an object modeling perspective, the work order is considered the
         cornerstone of the system, for which, everything is driven from. That
@@ -321,16 +343,90 @@ export default async function ArticlePage() {
       </p>
 
       <ClientModalWrapper
-        imgRef={"/article-content/se/tank-tracing/sample-movement-sequence.png"}
+        imgRef={
+          "/article-content/se/inv-tracking-system/sample-movement-sequence.png"
+        }
         imgDesc={"Click to expand"}
       >
         <ImageReference
-          imgRef="/article-content/se/tank-tracing/sample-movement-sequence.png"
-          description="Modeling a sequence of movements"
+          imgRef="/article-content/se/inv-tracking-system/sample-movement-sequence.png"
+          description="Time cost analysis for retrieving ata"
           height={770}
           width={1370}
         />
       </ClientModalWrapper>
+
+      <p>
+        So given the above diagram, the &apos;operation sequence&apos;
+        illustrates a series of operations, it is implied as an potentially
+        infiniate amount, but let&apos;s call 5,000 an example of the number of
+        times data is fetched during the process osf servicing a given request.
+      </p>
+
+      <p>
+        The &apos;Request iteration sequence&apos; section details what happens
+        at each step in the overall process. It is hard to assign exact times
+        for each individual step, there are a lot of potential variables that
+        come into play, but I will attempt to generalize efforts as follows:
+      </p>
+
+      <ul>
+        <li>X represents processing time, generally consistent.</li>
+
+        <li>
+          Y represents the network hit. This can be a variable, however based on
+          my past observations, this can take 2-5 MS as a safe assumption. A
+          small, almost insificant amount of time, however the key point here is
+          that each operation adds up in the larger scope of things.
+        </li>
+
+        <li>
+          Z represents the variable time for the relational store to handle the
+          external process request. So worst case scenario, file IO operation,
+          however a lot of relational database will self tune or support the
+          ability to definitively tune request operations.
+        </li>
+      </ul>
+
+      <p>
+        At first glance we notice the contrast between both approaches, we skip
+        the round trip network hits, and the internal processing of the request
+        to access data. With an in memory based approach, we essentially
+        eliminate a few steps required to stage the data for the parent
+        operation. Performance is good, really good.
+      </p>
+
+      <p>
+        Imagine a use case where the data required for a decision point
+        traverses a graph of objects, resulting in a series of queries as a
+        result of the lazy instantiation based approach towards accessing the
+        data. In this case, around 10 calls to the database to retrieve the
+        entire object needed to apply logic towards. So if the network hit to
+        retrieve the data and then map it into a an object wrapper takes around
+        5ms, and on average 10 calls are made, we are looking at around 50ms per
+        individual operation, and when processing 1,000 operations withing a
+        larger transaction, then that adds up to around 50,000 ms, or five
+        seconds. This is represented by the Y and Z time allocations in the
+        &apos;ORM based approach&apos; represented in the diagram. In contrast,
+        the &apos;in memory&apos; approach skips the Y and Z steps.
+      </p>
+
+      <p>
+        This might seem to be a trivial amount of time, however the actual
+        project that this effort is based was exponentially more complex, and
+        handling requests such as processing six months worth of data would
+        result in transactions running in upwards of 45 minutes, which was a
+        significant performance hit, enough to merit an alternate in memory
+        based approach.
+      </p>
+
+      <p>
+        The act of loading data into memory comes at a cost of complexity,
+        introducing additional requirements such as synchronization, and
+        potential memory limits, however if we are shooting for high
+        performance, and the size of the data set is within reason, then this
+        approach towards loading and storing the data makes a lot of sense.
+      </p>
 
       <h2>Optimizing for performance</h2>
       <p>
@@ -358,8 +454,131 @@ export default async function ArticlePage() {
         optimized way to load the data.
       </p>
 
-      <h2>The Object Model</h2>
-      <p>Let&pos;s take a look at the object model, which is as follows.</p>
+      <ClientModalWrapper
+        imgRef={
+          "/article-content/se/inv-tracking-system/tracing-in-memory-loading.png"
+        }
+        imgDesc={"Click to expand"}
+      >
+        <ImageReference
+          imgRef="/article-content/se/inv-tracking-system/tracing-in-memory-loading.png"
+          description="Modeling a sequence of movements"
+          height={770}
+          width={1370}
+        />
+      </ClientModalWrapper>
+
+      <h2>Project structure</h2>
+      <p>
+        The supporting project for this article is Node.js based, however the
+        concepts apply to other stacks. At a future point, I will attempt to
+        provide a java implementation for further illustrate the fact that the
+        concepts are universal.
+      </p>
+
+      <p>
+        There was a fair amount of heavy lifting that went into loading and
+        staging the in memory data structure, so a dedicated file was
+        established for this purpose (./src/services/entity-load.service.ts). In
+        addition to loading the data, we need to map the data into it&apos;s
+        final format, so an additional file
+        (./src/services/entity-mapping-service.ts) was created to suit that
+        purpose. Finally, a third file was created in order to actually handle
+        the requests for tracing operations
+        (./src/services/inv-tracking.service.ts).
+      </p>
+
+      <p>
+        With each of these files reaching a few hundred lines, it made sense to
+        divide them into purpose specific units.
+      </p>
+
+      <h2>Unit testing</h2>
+      <p>
+        Implementing what could be condsidered &apos;complex&apos; business
+        logic is hard to get right, and hard to provide that it works. This is a
+        gold case for unit level testing, which involves staging the data for
+        the operations. The decision was made to use a mock based approach
+        towards staging the data. This provides greater control over the staging
+        the required data for various use cases.
+      </p>
+
+      <p>
+        The level of effort to stage data and perform testing was fairly
+        sustantial. So we have around just under 1k lines of code to test and
+        around the same lines of code allocated towards staging mock data and
+        testing.
+      </p>
+
+      <p>
+        I have covered enough ground in this article so I won&apos;t go into
+        further detail a per the testing aspects as I cover this in another
+        article.
+      </p>
+
+      <h2>Tracing movements</h2>
+      <p>
+        So one of the top level use cases is to accept an reference to something
+        that had ocurred at specific point in time and then identify all
+        associated activity with the targeted piece of equipment.
+      </p>
+
+      <p>
+        The file responsible for handling tracing activity
+        (inv-tracking-service.ts) exposes the high level method
+        &apos;getMovementSequenec&apos; which is used to retrieve associated
+        activity for a selected piece of equipment and point in time. Based on
+        the arguments, we navigate to the first event for the targeted piece of
+        equipment, and then proceed forward historically until the final or last
+        recorded event. For example, If contents from three individual tanks
+        were pumped into an empty tank, and any one of the movements were passed
+        into the trace method, the method would return all of the movments as
+        they represent a series of related events.
+      </p>
+
+      <p>
+        The data structure that represents each movement is referred to as an{" "}
+        <i>MovementSummary</i>, which essentially is an object that contains a
+        denormalized collection of data for an activity for ease of consumption.
+        The MovementSummary functions as a node in a <i>Linked List</i>, where
+        each MovementSummary instance contains pointers to the previous and next
+        elements in the sequence of events.
+      </p>
+
+      <b>Identifying the first or original movement in a sequence</b>
+      <CodeSnippet
+        srcCode={getArticleContent("inv-tracking-system", "trace-backwards")}
+      />
+
+      <p>
+        The above example is the code responsible for accepting an movement
+        within a series of related movements, and then identifying the first
+        moement in the series. This would be the point in time where the tank
+        was originally empty. This is the initial step in the process of
+        identifying a sequence of movements. As the object structure contains FK
+        relations to other movements, the traceBackwards method utilizes
+        recursion to perform the tracing operation.
+      </p>
+
+      <p>
+        The next steps in the process involve repeating the process in a similar
+        manner where a recursive trace is perform from the initial point in the
+        sequence of movements until the final or last recorded movement is
+        encountered.
+      </p>
+
+      <p>
+        The intent of tracing is to provide an summary of all the related
+        operations. The data of interest lives across 7 objects, and from the
+        consumer&apos;s perspective is not necessarily important, so we take the
+        resulting movements that are identified and convert them into a
+        flattened value object for simplified consumption.
+      </p>
+
+      <b>The Movement value object</b>
+      <CodeSnippet
+        srcCode={getArticleContent("inv-tracking-system", "movement-segment")}
+      />
 
       <h2>Conclusion</h2>
       <p>
@@ -374,6 +593,13 @@ export default async function ArticlePage() {
         to showcase a real world project, that otherwise would not be possible
         as most of the code I have produced during my career is proprietary in
         nature, and is typically IP that belongs to an employer.
+      </p>
+
+      <p>
+        Source for this project can be located on GitHub
+        <Link href="https://github.com/west-coast-matthew/blog-tank-tracing">
+          https://github.com/west-coast-matthew/blog-tank-tracing
+        </Link>
       </p>
     </ArticleTemplateLayout>
   );

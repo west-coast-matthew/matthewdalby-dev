@@ -4,7 +4,7 @@ import styles from "./UmlClassDiagram.module.scss";
 const UmlClassDiagram: FC = () => {
   return (
     <div id="animation-container" className={styles["animation-container"]}>
-      <iframe src="http://localhost:3000/sample/index.html"></iframe>
+      <iframe src="/sample/index.html"></iframe>
     </div>
   );
 };
