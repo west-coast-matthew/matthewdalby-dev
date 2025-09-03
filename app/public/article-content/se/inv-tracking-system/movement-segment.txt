@@ -1,0 +1,18 @@
+export interface MovementSumary {
+  workOrderId: number;
+  workOrderNumbr: string;
+  completionDate: Date;
+  validationDate?: Date;
+  movementId: number;
+  sourceTankId: number;
+  sourceTankName: string;
+  destTankName: string;
+  destTankId: number;
+  origRequestGallons: number;
+  sourceBeforeGallons: number;
+  sourceAfterGallons: number;
+  destBeforeGallons: number;
+  destAfterGallons: number;
+  prevActivity: MovementSumary;
+  nextActivity: MovementSumary;
+}
