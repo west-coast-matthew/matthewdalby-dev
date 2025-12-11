@@ -1,0 +1,118 @@
+/**
+    VarietalCompositionEntry
+
+    Represents a piece of information that represents varietal information (i.e. 
+    what type of wine is this, where did it originate from...)
+
+*/
+class VarietalCompositionEntry{
+    BigInt percentage;
+    Variety variety;
+    Vineyard vineyard;
+}
+
+/**
+
+    VarietalCompressionServiceImpl
+
+    'sender' role in the 'chain of responsibility' pattern. Basically establishes an outer loop
+    that works from the smallest percentage upwards in order to delegate the task of condensing 
+    pieces of information into more generalized groups in order to meet an overall maximum record count threshold, in the least destructive manner.
+*/
+public class VarietalCompressionServiceImpl{
+
+    public List<VarietalCompositionEntry> ensureMaxEntryLogicApplied(List<VarietalCompositionEntry> entries){
+
+        // So this is the max number of entries....
+        public static final MAX_ENTRY_COUNT = 200;
+
+        // We define the amount we incrementally attempt to apply rules towards 
+        final BigDecimal incrementAmount = .0000000001;
+
+        // Ensure we only apply logic if ncessary
+        if(entries.size()<=MAX_ENTRY_COUNT){
+            return entries;
+        }
+
+        // Determine the smallest percentage we apply based on the min percent value present in the 
+        // set of records
+        BigDecimal minPct = ...
+
+        // Let's configure a series of rules that will actuall do the work...
+        Rule rule1 = new CompressToNapaRegions();
+        Rule rule2 = new CompressToMixedRed();
+        Rule rule3 = new CompressToCaliforniaVarietal();
+
+        rule1.setNextRule(rule2);
+        rule2.setNextRule(rule3)
+
+        /**
+            Main looping routine:
+
+            So we call the first rule in the chain, pass in the entries we are attempting to 
+            reduce, in addition to a threshold. A small deviation from a more simple implementation 
+            of this pattern in the sense that we still delegate the work to the 'chain' however 
+            we perform this in a loop, ever so slightly incrementing the criteria for which entriesbased on percentage become eligible for the logic.
+        */
+        for(x=minPct;x<100;x+incrementAmount){
+            entries = rule1.applyRule(entries,x);
+            if(entries.size()<=MAX_ENTRY_COUNT){
+                return entries;
+            }
+        }
+
+        return entries;
+    }
+}
+
+/**
+    Rule
+
+        Interface responsible for defining common behavior for all classes responsible for 
+        performing actions related to attempts to 
+*/
+public interface Rule{
+    public List<VarietalCompositionEntry>entries applyRule(List<VarietalCompositionEntry>entries, threshold);
+    public void setNextRule(Rule rule);
+}
+
+public abstract class extends AbstractRule{
+    protected Rule nextRule;
+}
+
+/**
+
+*/
+public class CompressToCaliforniaVarietal implements Rule extends AbstractRule{
+
+    List<VarietalCompositionEntry>entries(List<VarietalCompositionEntry>entries, threshold){
+        /* So here we would apply logic in an attempt to reduce entries. The actual logic is not 
+         important for this excersize, the important take away is that this rule applies
+         logic that is conditionally applied based on whatever factors that come into play.
+         Ideally, the logic would immediately return the modified/reduced set of records once 
+         the mas record count threshold is met. Otherwise, it delegates additional processing 
+         to other rules (should a 'next' rule be defined).
+         */
+
+
+    }
+
+    void setNextRule(Rule rule){
+        nextRule = rule;
+    }
+
+}
+
+/**
+
+*/
+public class CompressToMixedRed extends AbstractRule{
+
+}
+
+/**
+
+*/
+public class CompressToNapaRegions extends AbstractRule{
+
+}
