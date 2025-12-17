@@ -155,6 +155,13 @@ export const cfg: Array<Topic> = [
         postedDate: parse("2025-01-20", "yyyy-MM-dd", new Date()),
         active: true,
       },
+      {
+        title: "REST: Thoughts on Caching",
+        link: "/caching",
+        summary: "Making use of HTTP header cache control directives",
+        postedDate: parse("2025-01-20", "yyyy-MM-dd", new Date()),
+        active: true,
+      },
     ],
   },
   {
@@ -271,6 +278,14 @@ export const cfg: Array<Topic> = [
         summary:
           "A deep dive into modeling an inventory system used in the beverage manufacturing process",
         postedDate: parse("2025-06-14", "yyyy-MM-dd", new Date()),
+        active: true,
+      },
+      {
+        title: "The chain of responsibility pattern",
+        link: "/chain-of-responsibility-pattern",
+        summary:
+          "A real world example of the chain of responsibility design pattern",
+        postedDate: parse("2025-12-02", "yyyy-MM-dd", new Date()),
         active: true,
       },
     ],

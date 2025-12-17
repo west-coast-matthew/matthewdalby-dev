@@ -3,7 +3,7 @@ name: Deploy blog to Linode VPS
 on:
   push:
     branches:
-      - development
+      - development_old
 
   workflow_dispatch:
     inputs:

@@ -1,0 +1,16 @@
+Java:
+
+./src/main/java/com/smartco/services/composition/varietal/VarietalCompressionService.java
+./src/main/java/com/smartco/services/composition/varietal/impl/VarietalCompressionServiceImpl.java
+./src/main/java/com/smartco/services/composition/varietal/rules
+./src/main/java/com/smartco/services/composition/varietal/rules/CompressToCaliforniaVarietal.jav
+./src/main/java/com/smartco/services/composition/varietal/rules/CompressToMixedRed.java
+./src/main/java/com/smartco/services/composition/varietal/rules/CompressToNapaRegions.java
+
+Node.js:
+
+./src/services/composition/varietal/varietal-compression-service.js
+./src/services/composition/varietal/rules
+./src/services/composition/varietal/rules/compress-to-california-varietal.js
+./src/services/composition/varietal/rules/compress-to-mixed-red.js
+./src/services/composition/varietal/rules/compress-to-napa-regions.js

@@ -1,0 +1,22 @@
+/**
+			RecordReducer
+
+			'Main' entry point into the the overall process of conditionally reducing information information related to what would be considered an 'excessive' amount of information representing composition in the least destructive manner.
+
+			Start here ! and don't panic (https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy).
+
+			This method represents the entry point from some other process that performs the following:
+
+			The approach implemented here would be defined as the 'https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern'. In a nutshell, this class will accept a series of records, and if the total count exceeds a threshold, then this entry point will essentially orchestrate an outer loop that will delegate operations to other logical units as per the aformentioned pattern. 
+
+			This class in the wikipedia definition fits the role of the 'sender'.
+
+			The interface 'RuleProcessor' fits the role of anything that will be responsible for handling the logic.
+
+			All implementations for handling the logic will implement the 'RuleProcessor' interface. 
+
+			The dedicated package structure should reflect that this logic is structured in an isolated manner. Concerns about 'where' the data originates from and the final 'destination' of the results are externalized. 
+
+			Naming conventions of 'rule' implementations follow the naming convention 'RuleXXXX' where the 'XXXX' suffix is used to indicate the nature of the implementing rule. Keep in mind, any reference to an applied order 'should' be avoided in order to decouple the ordering of how they are applied. 
+
+		*/
