@@ -4,11 +4,7 @@ import ArticleTemplateLayout from "@/app/articles/article-template";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import CodeSnippet from "@/components/CodeSnippet";
-import {
-  getHeaderComments,
-  getFileStructure,
-  getJavaExample,
-} from "./code-examples";
+import { getHeaderComments, getJavaExample } from "./code-examples";
 
 /**
  * Represents an 'individual' article.

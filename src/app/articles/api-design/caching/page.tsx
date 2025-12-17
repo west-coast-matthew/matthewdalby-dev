@@ -2,9 +2,6 @@ import { Metadata } from "next";
 import { parseHeaders } from "@/utils/page-utils";
 import ArticleTemplateLayout from "@/app/articles/article-template";
 import { Fade } from "react-awesome-reveal";
-import Link from "next/link";
-import CodeSnippet from "@/components/CodeSnippet";
-import { getArticleContent } from "./code-examples";
 
 export const metadata: Metadata = {
   title: "Matthew Dalby: Articles: API Design: Exception Handling",
