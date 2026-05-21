@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { parseHeaders } from "@/utils/page-utils";
+import { getArticleData } from "@/utils/page-utils";
 import ArticleTemplateLayout from "@/app/articles/article-template";
 
 /**
@@ -11,11 +11,11 @@ import ArticleTemplateLayout from "@/app/articles/article-template";
  */
 
 export const metadata: Metadata = {
-  title: "Matthew Dalby: Articles: API Design: Exception Handling",
+  title: "Matthew Dalby: Articles: Software Engineering: Blog Design",
 };
 
 export default async function ArticlePage() {
-  const { selPath, selArticle } = await parseHeaders();
+  const { selPath, selArticle } = getArticleData("/software-engineering", "/blog-design");
 
   return (
     <ArticleTemplateLayout selPath={selPath} selArticle={selArticle}>

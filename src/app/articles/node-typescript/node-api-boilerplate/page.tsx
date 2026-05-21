@@ -1,15 +1,15 @@
 import { Metadata } from "next";
-import { parseHeaders } from "@/utils/page-utils";
+import { getArticleData } from "@/utils/page-utils";
 import ArticleTemplateLayout from "@/app/articles/article-template";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Matthew Dalby: Articles: API Design: Exception Handling",
+  title: "Matthew Dalby: Articles: Node Typescript: Node Api Boilerplate",
 };
 
 export default async function ArticlePage() {
-  const { selPath, selArticle } = await parseHeaders();
+  const { selPath, selArticle } = getArticleData("/node-typescript", "/node-api-boilerplate");
 
   return (
     <ArticleTemplateLayout selPath={selPath} selArticle={selArticle}>

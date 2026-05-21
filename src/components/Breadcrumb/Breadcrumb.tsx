@@ -29,15 +29,15 @@ const BreadcrumbPanel: FC<Props> = ({ path }) => {
         .replace(/\b\w/g, (l) => l.toUpperCase());
 
       if (index == pathTokens.length - 1) {
-        breadcrumbs.push(<span> / {label} </span>);
+        breadcrumbs.push(<span key={curPath}> / {label} </span>);
       } else {
-        breadcrumbs.push(<Link href={`${linkTrail}`}> / {label} </Link>);
+        breadcrumbs.push(<Link key={curPath} href={`${linkTrail}`}> / {label} </Link>);
       }
     }
   });
 
   breadcrumbs.shift();
-  breadcrumbs.unshift(<Link href={`/topics/`}> / Articles </Link>);
+  breadcrumbs.unshift(<Link key="root" href={`/topics/`}> / Articles </Link>);
 
   return <div className={styles["breadcrumb-panel"]}>{breadcrumbs}</div>;
 };

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { parseHeaders } from "@/utils/page-utils";
+import { getArticleData } from "@/utils/page-utils";
 import ArticleTemplateLayout from "@/app/articles/article-template";
 import { Fade } from "react-awesome-reveal";
 import CodeSnippet from "@/components/CodeSnippet";
@@ -8,7 +8,7 @@ import fs from "fs";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Matthew Dalby: Articles: API Design: Exception Handling",
+  title: "Matthew Dalby: Articles: Node Typescript: Creating Shared Modules",
 };
 
 let filePath = path.join(
@@ -33,7 +33,7 @@ filePath = path.join(
 const clientPackageJson = fs.readFileSync(filePath, "utf-8");
 
 export default async function ArticlePage() {
-  const { selPath, selArticle } = await parseHeaders();
+  const { selPath, selArticle } = getArticleData("/node-typescript", "/creating-shared-modules");
 
   return (
     <ArticleTemplateLayout selPath={selPath} selArticle={selArticle}>

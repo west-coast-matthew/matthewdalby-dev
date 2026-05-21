@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { parseHeaders } from "@/utils/page-utils";
+import { getArticleData } from "@/utils/page-utils";
 import ArticleTemplateLayout from "@/app/articles/article-template";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
@@ -17,7 +17,7 @@ import ImageReference from "@/components/ImageReference";
  */
 
 export const metadata: Metadata = {
-  title: "Matthew Dalby: Articles: API Design: Exception Handling",
+  title: "Matthew Dalby: Articles: Software Engineering: Complex Process Auditing",
 };
 
 let filePath = path.join(
@@ -41,7 +41,7 @@ filePath = path.join(
 const agentInteraction = fs.readFileSync(filePath, "utf-8");
 
 export default async function ArticlePage() {
-  const { selPath, selArticle } = await parseHeaders();
+  const { selPath, selArticle } = getArticleData("/software-engineering", "/complex-process-auditing");
 
   return (
     <ArticleTemplateLayout selPath={selPath} selArticle={selArticle}>

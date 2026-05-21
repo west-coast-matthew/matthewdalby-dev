@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { parseHeaders } from "@/utils/page-utils";
+import { getArticleData } from "@/utils/page-utils";
 import ArticleTemplateLayout from "@/app/articles/article-template";
 import { Fade } from "react-awesome-reveal";
 
@@ -12,11 +12,11 @@ import { Fade } from "react-awesome-reveal";
  */
 
 export const metadata: Metadata = {
-  title: "Matthew Dalby: Articles: API Design: Exception Handling",
+  title: "Matthew Dalby: Articles: Apps > Erp: Entity Management Ui",
 };
 
 export default async function ArticlePage() {
-  const { selPath, selArticle } = await parseHeaders();
+  const { selPath, selArticle } = getArticleData("/apps/erp", "/entity-management-ui");
 
   return (
     <ArticleTemplateLayout selPath={selPath} selArticle={selArticle}>

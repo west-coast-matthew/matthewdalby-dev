@@ -1,4 +1,4 @@
-import styles from "../articles/templates/topic-article-list-template.module.scss";
+import styles from "../articles/[...slug]/topic-article-list-template.module.scss";
 import { Metadata } from "next";
 import Topic from "@/types/topic.type";
 import TopicDisplayCell from "@/components/TopicDisplayCell";

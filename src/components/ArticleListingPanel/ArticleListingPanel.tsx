@@ -29,11 +29,8 @@ const ArticleListingPanel:FC<Props> = async({topic})=>{
         }
 
         return formatActiveArticles(articles).map((article: Article, index)=>{
-            return(<>
-            
-            <ArticleListingCell key={String(index)} article={article} link={`/articles/${topic?.link}${article.link}`}/>
-            </>
-               
+            return (
+              <ArticleListingCell key={String(index)} article={article} link={`/articles/${topic?.link}${article.link}`}/>
             )
         });
     }

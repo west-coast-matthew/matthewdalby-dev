@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { parseHeaders } from "@/utils/page-utils";
+import { getArticleData } from "@/utils/page-utils";
 import ArticleTemplateLayout from "@/app/articles/article-template";
 import CodeSnippet from "@/components/CodeSnippet";
 import { getArticleContent } from "@/app/articles/api-design/designing-controllers/code-examples";
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ArticlePage() {
-  const { selPath, selArticle } = await parseHeaders();
+  const { selPath, selArticle } = getArticleData("/api-design", "/designing-controllers");
 
   return (
     <ArticleTemplateLayout selPath={selPath} selArticle={selArticle}>

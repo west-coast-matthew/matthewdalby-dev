@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { parseHeaders } from "@/utils/page-utils";
+import { getArticleData } from "@/utils/page-utils";
 import ArticleTemplateLayout from "@/app/articles/article-template";
 import { Fade } from "react-awesome-reveal";
 import CodeSnippet from "@/components/CodeSnippet";
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ArticlePage() {
-  const { selPath, selArticle } = await parseHeaders();
+  const { selPath, selArticle } = getArticleData("/node-typescript", "/tanstack-in-action");
 
   return (
     <ArticleTemplateLayout selPath={selPath} selArticle={selArticle}>
