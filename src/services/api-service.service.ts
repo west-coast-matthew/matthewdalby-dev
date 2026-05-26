@@ -231,13 +231,6 @@ export const cfg: Array<Topic> = [
     active: true,
     articles: [
       {
-        title: "Let's Build A Blog",
-        link: "/blog-design",
-        summary: "How I made this blog.",
-        postedDate: parse("2025-06-10", "yyyy-MM-dd", new Date()),
-        active: false,
-      },
-      {
         title: "Auditing Complex Processes",
         link: "/complex-process-auditing",
         summary: "Transitioning complex processes from a black box",
@@ -248,13 +241,6 @@ export const cfg: Array<Topic> = [
         title: "DSL Based Code Generation",
         link: "/dsl-based-code-generation",
         summary: "An experiment in reversing an RDMBs into ORM source",
-        postedDate: parse("2024-06-18", "yyyy-MM-dd", new Date()),
-        active: false,
-      },
-      {
-        title: "Jira IDE Integration",
-        link: "/jira-ide-integration",
-        summary: "Experiences in integrating Jira with IDEs",
         postedDate: parse("2024-06-18", "yyyy-MM-dd", new Date()),
         active: false,
       },
@@ -311,7 +297,7 @@ export const cfg: Array<Topic> = [
         active: false,
       },
       {
-        title: "Tankstack in Action",
+        title: "TanStack in Action !!!!!!",
         link: "/tanstack-in-action",
         summary: "Developing a REST API with a shared module",
         postedDate: parse("2025-08-28", "yyyy-MM-dd", new Date()),

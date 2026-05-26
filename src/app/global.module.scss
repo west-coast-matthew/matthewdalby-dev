@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
 $background-color: #1c1b23;
 $font-base-color: rgb(200, 198, 215);
 $h1-font-color: #ffffff;
@@ -39,6 +41,7 @@ $h3-font-color: rgb(148, 144, 167);
     opacity: 0;
     visibility: hidden;
   }
+
   to {
     opacity: 1;
     visibility: visible;
@@ -55,6 +58,7 @@ $h3-font-color: rgb(148, 144, 167);
     visibility: hidden;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     visibility: visible;
@@ -69,25 +73,42 @@ $h3-font-color: rgb(148, 144, 167);
 body.main {
   // font-family: 'ClashDisplay-Light';
 
-  font-family: ClashDisplay-Regular;
+  font-family: "Roboto", sans-serif;
   background-color: $background-color;
   color: $font-base-color;
   text-align: center;
-  font-size: 1.25rem;
+  //font-size: 1.25rem;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Inter", sans-serif;
+  }
 
   h1 {
     color: $h1-font-color;
     line-height: 0px;
-    font-family: ClashDisplay-Semibold;
+    font-size: 1.5em;
   }
 
   h2 {
     line-height: 25px;
-    font-family: ClashDisplay-Medium;
+    font-size: 1.125em;
   }
 
   h3 {
     color: $h3-font-color;
+    font-size: 0.88em;
+  }
+
+  h4 {
+    font-size: 0.75em;
+  }
+
+  h5 {
+    font-size: 0.62em;
+  }
+
+  h6 {
+    font-size: 0.5em;
   }
 
   .footer {
@@ -101,20 +122,23 @@ body.main {
     color: $font-base-color;
     text-decoration: none;
   }
+
   a:visited {
     color: $font-base-color;
     text-decoration: none;
   }
+
   a:hover {
     color: $font-base-color;
     text-decoration: underline;
   }
+
   p a:active {
     color: $font-base-color;
     text-decoration: none;
   }
 
-  letter-spacing: 1px;
+  //letter-spacing: 1px;
 }
 
 .generic-main-content {

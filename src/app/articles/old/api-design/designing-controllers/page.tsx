@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { getArticleData } from "@/utils/page-utils";
 import ArticleTemplateLayout from "@/app/articles/article-template";
 import CodeSnippet from "@/components/CodeSnippet";
-import { getArticleContent } from "@/app/articles/api-design/designing-controllers/code-examples";
+import { getArticleContent } from "@/app/articles/old/api-design/designing-controllers/code-examples";
 import Link from "next/link";
 
 /**
