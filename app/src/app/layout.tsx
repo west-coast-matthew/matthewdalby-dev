@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
+import { Be_Vietnam_Pro } from "next/font/google";
 import styles from "./global.module.scss";
 import HeaderPanel from "@/components/HeaderPanel/";
 import FooterPanel from "@/components/FooterPanel";
+
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-be-vietnam-pro",
+});
 
 export const metadata: Metadata = {
   title: "Matthew Dalby",
@@ -14,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={beVietnamPro.variable}>
       <body className={styles['main']}>
         <HeaderPanel />
         <div className={styles['main2_']}>

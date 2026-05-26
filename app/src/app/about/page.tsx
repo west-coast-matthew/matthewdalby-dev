@@ -1,7 +1,5 @@
 import styles from './about.module.scss';
 import cx from 'classnames';
-import headshot from '../../../public/headshot.png';
-import Image from 'next/image';
 import ContactForm from '@/components/ContactForm';
 import { Fade } from 'react-awesome-reveal';
 import { Metadata } from 'next';
@@ -21,8 +19,6 @@ export default function AboutPage() {
           <h2 className={cx(styles['subtitle'],styles['anim-fade-in'])}>Software Engineer, Technologist, Amature Chef Hack</h2>
 
           <div className={styles['about-panel']}>
-
-            <Image src={headshot} width="100" height="100" alt="Headshot Photo"/>
             
             <p>Hello my name is Matthew! I am an seasoned full-stack software engineer with 15+ years of tinkering, building, optimizing, and of course, fixing code. It started when I was age 10, a hobby that turned into a career, there seems to be always something to keep me engaged. I have worked for startup mode, high growth, and enterprise organizations. These experiences have helpd to form a unique personal perspective on technology.</p>
 

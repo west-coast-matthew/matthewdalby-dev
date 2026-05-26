@@ -5,35 +5,6 @@ $h1-font-color: #FFFFFF;
 $h2-font-color: rgb(148, 144, 167);
 $h3-font-color: rgb(148, 144, 167);
 
-@font-face {
-  font-family: 'ClashDisplay-Extralight';
-  src: url(/fonts/ClashDisplay-Extralight.woff2) format('woff2');
-}
-
-@font-face {
-  font-family: 'ClashDisplay-Light';
-  src: url(/fonts/ClashDisplay-Light.woff2) format('woff2');
-}
-
-@font-face {
-  font-family: 'ClashDisplay-Medium';
-  src: url(/fonts/ClashDisplay-Medium.woff2) format('woff2');
-}
-
-@font-face {
-  font-family: 'ClashDisplay-Regular';
-  src: url(/fonts/ClashDisplay-Regular.woff2) format('woff2');
-}
-
-@font-face {
-  font-family: 'ClashDisplay-Semibold';
-  src: url(/fonts/ClashDisplay-Semibold.woff2) format('woff2');
-}
-
-@font-face {
-  font-family: 'ClashDisplay-Variable';
-  src: url(/fonts/ClashDisplay-Variable.woff2) format('woff2');
-}
 
 @keyframes fade-in {
   from {
@@ -69,31 +40,44 @@ $h3-font-color: rgb(148, 144, 167);
 
 body.main{
 
-  // font-family: 'ClashDisplay-Light';
-
-  font-family: ClashDisplay-Regular;
+  font-family: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
   background-color: $background-color;
   color: $font-base-color;
-  // color: blue;
-  // font-family: Clash Display, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
   text-align: center;
-  font-sizE: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  font-optical-sizing: auto;
 
   h1{
     color: $h1-font-color;
-    line-height: 0px;
-    font-family: ClashDisplay-Semibold;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
   }
 
   h2{
-    // color: blue;
-    line-height: 25px;
-    font-family: ClashDisplay-Medium;
-    // font-size: 2em;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
   }
 
   h3{
     color: $h3-font-color;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  p{
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
   }
 
   .footer{
